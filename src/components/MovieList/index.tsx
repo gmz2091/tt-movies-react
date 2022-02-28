@@ -5,6 +5,7 @@ import React, { useContext, useState } from 'react';
 import { DataContext } from '../../context/data.context';
 import { Movies } from '../../interfaces/movies.interface';
 import { MoviesVote } from '../../interfaces/votes.interface';
+import { Container } from '../../styles/styles';
 import Button from '../common/Button';
 import Input from '../common/Input';
 import {
@@ -62,7 +63,9 @@ const MovieList = () => {
           ))}
         </MovieListWrapper>
       ) : (<div> No movie registration </div>) }
-      <Button title="Submit votes" />
+      <Container>
+        <Button title="Submit votes" />
+      </Container>
     </>
   );
 };

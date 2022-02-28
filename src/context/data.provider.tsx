@@ -17,7 +17,7 @@ const INITIAL_STATE: MovieInterface = {
 const MovieProvider = ({ children }: ProviderMovieProps) => {
   const [dataState, dispatch] = useReducer(dataReducer, INITIAL_STATE);
 
-  const setData = (data: Movies[]) => {
+  const setData = (data: MovieInterface) => {
     dispatch({ type: 'SET_DATA', payload: data });
   };
 

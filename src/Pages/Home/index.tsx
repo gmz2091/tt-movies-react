@@ -11,8 +11,8 @@ const Home = ({ title = 'My Custom App' }: HomeProps) => {
   const { setData } = useContext(DataContext);
 
   const MoviesList = async () => {
-    const data = await getMovies();
-    setData(data);
+    const movies: any = await getMovies();
+    setData(movies);
   };
 
   useEffect(() => {

@@ -10,8 +10,7 @@ export async function getMovies(): Promise<Movies[]> {
   try {
     const response = await fetch('http://localhost:8080/api/movies');
     const data = await response.json();
-    const { movies } = data;
-    return movies;
+    return data;
   } catch (error) {
     throw new Error('Error getMovies');
   }

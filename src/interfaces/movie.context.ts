@@ -5,5 +5,5 @@ import { Movies } from './movies.interface';
 
 export interface MoviesContextProps {
     dataState: MovieInterface
-    setData: (data: Movies[])=> void;
+    setData: (data: MovieInterface)=> void;
 }

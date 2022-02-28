@@ -18,8 +18,6 @@ const MovieList = () => {
 
   const movieList = list.movies;
 
-  console.log(movieList);
-
   const handleChange = (e: any) : void => {
     const movieTitle = e.target.value;
     const results = movieList.filter((movie: {
@@ -31,12 +29,12 @@ const MovieList = () => {
   };
 
   const buttonClick = (id : string, title: string, category: string) : void => {
-    const newVote = vote.concat({
+    const newVote: MoviesVote = {
       id,
       title,
       category,
-    });
-    setVote(newVote);
+    };
+    setVote([...vote, newVote]);
   };
   return (
     <>

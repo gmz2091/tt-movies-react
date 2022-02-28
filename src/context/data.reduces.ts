@@ -1,11 +1,9 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/prefer-default-export */
-
-import { Movies } from '../interfaces/movies.interface';
 import { MovieInterface } from './data.provider';
 
 type Action =
-    | { type: 'SET_DATA'; payload: Movies[] }
+    | { type: 'SET_DATA'; payload: MovieInterface }
     | { type: 'SET_LOADING'; payload: boolean }
     | { type: 'SET_ERROR'; payload: string };
 

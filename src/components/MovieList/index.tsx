@@ -49,12 +49,12 @@ const MovieList = () => {
           setShowModal(false);
         }}
       >
-        <Container style={{ position: 'relative', top: '100px' }}>
+        <Container>
           {vote.length === 0 ? <Typography style={{ fontWeight: '300', textAlign: 'left', width: '100%' }}>0 votes...</Typography> : (
             vote.map((vote: MoviesVote) => (
               <MovieListContainer
                 style={{
-                  display: 'flex', width: '100%', padding: '0',
+                  display: 'flex', width: '100%', padding: '0', marginTop: '10px',
                 }}
                 key={vote.id}
               >
@@ -98,7 +98,6 @@ const MovieList = () => {
                 }}
               />
             </MovieListContainer>
-
           ))}
         </MovieListWrapper>
       ) : (<div> No movie registration </div>) }

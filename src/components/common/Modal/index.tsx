@@ -40,8 +40,6 @@ const Modal = ({ title, children, setShowModal }: ModalProps) => {
       <Button style={styles.closeModal} title={iconClose} onClick={setShowModal} />
       <ModalContent style={{ position: 'relative' }}>
         <Container style={{
-          position: 'absolute',
-          top: '5px',
         }}
         >
           <Typography>

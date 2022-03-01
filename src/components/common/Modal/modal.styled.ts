@@ -11,7 +11,7 @@ export const ModalWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: '0px 0px 10px rgba(0, 0, 0, 0.5)',
+    box-shadow: '0px 0px 10px rgba(0, 0, 0, 0.5)';
 `;
 
 export const ModalContent = styled.div`
@@ -21,7 +21,8 @@ export const ModalContent = styled.div`
     padding: 20px;
     width: 500px;
     max-height: 60%;
-    overflow-y: auto;
+    scrollbar-width: none;
+    overflow: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -9,7 +9,8 @@ type Action =
     | { type: 'SET_ERROR'; payload: string };
 
 export const dataReducer = (state: MovieInterface, action: Action) : MovieInterface => {
-  console.log(action.payload);
+  // console.log(state);
+  // console.log(action.payload);
   switch (action.type) {
     case 'SET_DATA':
       return {

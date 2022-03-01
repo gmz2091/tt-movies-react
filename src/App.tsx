@@ -8,7 +8,7 @@ import MovieProvider from './context/data.provider';
 const App: FC = () => (
   <MovieProvider>
     <GlobalStyle />
-    <Home />
+    <Home title="Movies Awards" />
   </MovieProvider>
 );
 

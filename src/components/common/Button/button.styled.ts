@@ -7,8 +7,10 @@ import { colors } from '../../../styles/colors';
 export const Button = styled.button`
     color:'#000';
     border: none;
-    border-radius: 5px;
+    border-radius: ${(props) => props.style?.borderRadius || '5px'};
     padding: 10px 20px;
+    width: ${(props) => props.style?.width || null};
+    height: ${(props) => props.style?.height || null};
     font-size: 13px;
     transition: all 0.2s ease-in-out;
     cursor: pointer;

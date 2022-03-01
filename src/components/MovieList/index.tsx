@@ -5,15 +5,17 @@ import React, { useContext, useState } from 'react';
 import { DataContext } from '../../context/data.context';
 import { Movies } from '../../interfaces/movies.interface';
 import { MoviesVote } from '../../interfaces/votes.interface';
-import { Container } from '../../styles/styles';
+import { Container, Typography } from '../../styles/styles';
 import Button from '../common/Button';
 import Input from '../common/Input';
+import Modal from '../common/Modal';
 import {
   MovieListContainer, MovieListWrapper, MoviePoster, MovieTitle,
 } from './styled';
 
 const MovieList = () => {
   const [vote, setVote] = useState<MoviesVote[]>([]);
+  const [showModal, setShowModal] = useState(false);
 
   const { movies: list, setData } = useContext(DataContext);
 
@@ -21,7 +23,7 @@ const MovieList = () => {
 
   const handleChange = (e: any) : void => {
     const movieTitle = e.target.value;
-    const rest: any = movieList.filter((movie: {
+    const rest: Movies[] = movieList.filter((movie: {
       title: string }) => movie.title
       .toString()
       .toLowerCase()
@@ -37,8 +39,45 @@ const MovieList = () => {
     };
     setVote([...vote, newVote]);
   };
+
   return (
     <>
+      {showModal && (
+      <Modal
+        title="Submit Votes"
+        setShowModal={() => {
+          setShowModal(false);
+        }}
+      >
+        <Container style={{ position: 'relative', top: '100px' }}>
+          {vote.length === 0 ? <Typography style={{ fontWeight: '300', textAlign: 'left', width: '100%' }}>0 votes...</Typography> : (
+            vote.map((vote: MoviesVote) => (
+              <MovieListContainer
+                style={{
+                  display: 'flex', width: '100%', padding: '0',
+                }}
+                key={vote.id}
+              >
+                <Container style={{
+                  display: 'flex', width: '100%', flexWrap: 'wrap', flexDirection: 'row', padding: '0',
+                }}
+                >
+                  <Typography style={{ fontWeight: '500' }}>Title: </Typography>
+                  <MovieTitle style={{ fontWeight: '300' }}>{vote.title}</MovieTitle>
+                </Container>
+                <Container style={{
+                  display: 'flex', width: '100%', flexWrap: 'wrap', flexDirection: 'row', padding: '0',
+                }}
+                >
+                  <Typography style={{ fontWeight: '500' }}>Category: </Typography>
+                  <MovieTitle style={{ fontWeight: '300' }}>{vote.category}</MovieTitle>
+                </Container>
+              </MovieListContainer>
+            ))
+          )}
+        </Container>
+      </Modal>
+      )}
       <Input
         placeholder="Search a movie title..."
         type="string"
@@ -64,7 +103,12 @@ const MovieList = () => {
         </MovieListWrapper>
       ) : (<div> No movie registration </div>) }
       <Container>
-        <Button title="Submit votes" />
+        <Button
+          onClick={() => {
+            setShowModal(true);
+          }}
+          title="Submit votes"
+        />
       </Container>
     </>
   );

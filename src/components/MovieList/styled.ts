@@ -5,7 +5,7 @@ export const MovieListWrapper = styled.div`
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
         width: 80%;
         height: 100%;
         padding: 0px;
@@ -16,7 +16,7 @@ export const MovieListWrapper = styled.div`
         }
     `;
 export const MovieListContainer = styled.div`
-        display: flex;
+        display: ${(props) => (props.style?.display || 'flex')};
         flex-direction: column;
         align-items: center;
         justify-content: center;

@@ -4,6 +4,6 @@ import { MovieInterface } from '../context/data.provider';
 import { Movies } from './movies.interface';
 
 export interface MoviesContextProps {
-    dataState: MovieInterface
+    movies: MovieInterface
     setData: (data: MovieInterface)=> void;
 }

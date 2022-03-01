@@ -15,14 +15,14 @@ const INITIAL_STATE: MovieInterface = {
 };
 
 const MovieProvider = ({ children }: ProviderMovieProps) => {
-  const [dataState, dispatch] = useReducer(dataReducer, INITIAL_STATE);
+  const [movies, dispatch] = useReducer(dataReducer, INITIAL_STATE);
 
   const setData = (data: MovieInterface) => {
     dispatch({ type: 'SET_DATA', payload: data });
   };
 
   return (
-    <DataContext.Provider value={{ dataState, setData }}>
+    <DataContext.Provider value={{ movies, setData }}>
       {children}
     </DataContext.Provider>
   );

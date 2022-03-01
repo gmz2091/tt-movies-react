@@ -15,18 +15,18 @@ import {
 const MovieList = () => {
   const [vote, setVote] = useState<MoviesVote[]>([]);
 
-  const { dataState: list } = useContext(DataContext);
+  const { movies: list, setData } = useContext(DataContext);
 
   const movieList = list.movies;
 
   const handleChange = (e: any) : void => {
     const movieTitle = e.target.value;
-    const results = movieList.filter((movie: {
+    const rest: any = movieList.filter((movie: {
       title: string }) => movie.title
       .toString()
       .toLowerCase()
       .includes(movieTitle));
-    console.log(results);
+    setData({ movies: rest });
   };
 
   const buttonClick = (id : string, title: string, category: string) : void => {
